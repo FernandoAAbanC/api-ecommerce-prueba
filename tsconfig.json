@@ -1,0 +1,16 @@
+{
+    "extends": "fastify-tsconfig",
+    "compilerOptions": {
+        "outDir": "dist",
+        "downlevelIteration": true,
+        "strict": false,
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "es2015.collection",
+            "es2015.iterable",
+            "esnext"
+          ]
+    },
+    "include": ["src/**/*.ts"]
+}
