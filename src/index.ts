@@ -2,7 +2,6 @@ import fastify from "fastify";
 import { MongoClient } from "mongodb";
 import { ICars } from "./interfaces/Cars";
 
-
 //TODO: URL de la connexion
 
 const url = "mongodb+srv://fernando:PruebaXcaret02@cluster0.zzn84.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
