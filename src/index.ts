@@ -2,7 +2,7 @@ import Fastify from "fastify";
 import { MongoClient } from "mongodb";
 import { ICars } from "./interfaces/Cars";
 const http = require("http");
-
+const PORT = process.env.PORT || 8081;
 const serverFactory = (handler:any) => {
   const server = http.createServer((req:any, res:any) => {
     handler(req, res)
@@ -39,7 +39,7 @@ server.get("/all", async function (): Promise<ICars[]> {
   return all;
 });
 
-server.listen(8081, (err, address) => {
+server.listen(PORT, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
