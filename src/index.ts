@@ -1,6 +1,15 @@
-import fastify from "fastify";
+import Fastify from "fastify";
 import { MongoClient } from "mongodb";
 import { ICars } from "./interfaces/Cars";
+const http = require("http");
+
+const serverFactory = (handler:any) => {
+  const server = http.createServer((req:any, res:any) => {
+    handler(req, res)
+  })
+
+  return server
+}
 
 //TODO: URL de la connexion
 
@@ -11,7 +20,7 @@ const client = new MongoClient(url);
 
 const dbName = "Ecommerce-cars";
 
-const server = fastify();
+const server = Fastify({ serverFactory})
 
 server.get("/", async function () {
   return "Prueba-Xcaret-2021";

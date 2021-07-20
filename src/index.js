@@ -41,12 +41,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fastify_1 = __importDefault(require("fastify"));
 var mongodb_1 = require("mongodb");
+var http = require("http");
+var serverFactory = function (handler) {
+    var server = http.createServer(function (req, res) {
+        handler(req, res);
+    });
+    return server;
+};
 //TODO: URL de la connexion
 var url = "mongodb+srv://fernando:PruebaXcaret02@cluster0.zzn84.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 var client = new mongodb_1.MongoClient(url);
 //TODO: Nombre de la base de datos
 var dbName = "Ecommerce-cars";
-var server = fastify_1.default();
+var server = fastify_1.default({ serverFactory: serverFactory });
 server.get("/", function () {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
