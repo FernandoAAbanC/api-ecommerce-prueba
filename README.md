@@ -1,4 +1,6 @@
 # api-ecommerce-prueba
+Generar proyecto con fastify
+fastyfy generate api-ecommerce-prueba --lang=ts
 
 Este api fue desarrollado con Node js, Fastify, Typescript, MongoDb
 
