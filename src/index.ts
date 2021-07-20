@@ -2,7 +2,7 @@ import fastify from "fastify";
 import { MongoClient } from "mongodb";
 import { ICars } from "./interfaces/Cars";
 
-const PORT = process.env.PORT || 8081;
+
 //TODO: URL de la connexion
 
 const url = "mongodb+srv://fernando:PruebaXcaret02@cluster0.zzn84.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
@@ -31,7 +31,7 @@ server.get("/all", async function (): Promise<ICars[]> {
   return all;
 });
 
-server.listen(PORT, (err, address) => {
+server.listen(8081, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);

@@ -41,7 +41,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var fastify_1 = __importDefault(require("fastify"));
 var mongodb_1 = require("mongodb");
-var PORT = process.env.PORT || 8081;
 //TODO: URL de la connexion
 var url = "mongodb+srv://fernando:PruebaXcaret02@cluster0.zzn84.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 var client = new mongodb_1.MongoClient(url);
@@ -78,7 +77,7 @@ server.get("/all", function () {
         });
     });
 });
-server.listen(PORT, function (err, address) {
+server.listen(8081, function (err, address) {
     if (err) {
         console.error(err);
         process.exit(1);
