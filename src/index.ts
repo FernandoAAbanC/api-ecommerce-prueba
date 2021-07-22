@@ -2,7 +2,7 @@ import Fastify from "fastify";
 import { MongoClient } from "mongodb";
 import { ICars } from "./interfaces/Cars";
 const http = require("http");
-const PORT = process.env.PORT || 8081;
+
 const serverFactory = (handler:any) => {
   const server = http.createServer((req:any, res:any) => {
     handler(req, res)
@@ -39,10 +39,7 @@ server.get("/all", async function (): Promise<ICars[]> {
   return all;
 });
 
-server.listen(PORT, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log("Aplicación en ejecución:", `${address}`);
-});
+server.listen(process.env.PORT || 3000, process.env.HOST || '::', err => {
+  if (err) throw err
+  console.log(`server listening on ${server.server.address().port}`)
+})
