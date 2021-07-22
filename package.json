@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "sourceMap": true
+  },
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "build": "tsc && npm run start",
+    "start": "node dist/index.js"     
 },
   "keywords": [],
   "author": "",
