@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import { MongoClient } from "mongodb";
+const fastifyCors = require("fastify-cors");
 import { ICars } from "./interfaces/Cars";
 const http = require("http");
 
@@ -21,6 +22,10 @@ const client = new MongoClient(url);
 const dbName = "Ecommerce-cars";
 
 const server = Fastify({ serverFactory})
+// Cors
+
+
+server.register(fastifyCors, {});
 
 server.get("/", async function () {
   return "Prueba-Xcaret-2021";
@@ -39,7 +44,7 @@ server.get("/all", async function (): Promise<ICars[]> {
   return all;
 });
 
-server.listen(process.env.PORT || 3000, process.env.HOST || '::', err => {
+server.listen(process.env.PORT || 8081, process.env.HOST || '::', err => {
   if (err) throw err
   console.log(`server listening on ${server.server.address().port}`)
 })
